@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MascFem — знакомства для мужчин и фембоев</title>
+    <style>
+        :root {
+            --color-primary: #6a5acd;
+            --color-secondary: #ff6b6b;
+            --color-light: #f8f9fa;
+            --color-dark: #343a40;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f5;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(135deg, var(--color-primary), #8a2be2);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        header::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(5deg);
+            z-index: 0;
+        }
+        h1 {
+            margin: 0;
+            font-size: 3em;
+            font-weight: 800;
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .tagline {
+            font-style: italic;
+            margin-top: 10px;
+            font-size: 1.2em;
+            opacity: 0.9;
+            position: relative;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 25px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .profile {
+            display: flex;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            background: #fafaff;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .profile:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(106, 90, 205, 0.2);
+        }
+        .profile::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+        }
+        .profile-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-right: 25px;
+            border: 3px solid var(--color-primary);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .profile:hover .profile-photo {
+            transform: scale(1.03);
+        }
+        .profile-info h2 {
+            margin: 0 0 10px 0;
+            color: var(--color-primary);
+            font-size: 1.8em;
+        }
+        .profile-info p {
+            margin: 8px 0;
+            font-size: 1.05em;
+        }
+        .gender-tag {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-right: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .femboy {
+            background-color: #ffb6c1;
+            color: #8b0000;
+        }
+        .man {
+            background-color: #add8e6;
+            color: #00008b;
+        }
+        .quadrober {
+            background-color: #98fb98;
+            color: #006400;
+        }
+        .nyashka {
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            color: #d23669;
+        }
+        .search-bar {
+            margin: 30px 0;
+            text-align: center;
+        }
+        .search-bar input {
+            padding: 12px 20px;
+            width: 70%;
+            border: 2px solid #ddd;
+            border-radius: 30px;
+            font-size: 1.1em;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .search-bar input:focus {
+            border-color: var(--color-primary);
+        }
+        .search-bar button {
+            padding: 12px 25px;
+            background: linear-gradient(45deg, var(--color-primary), #8a2be2);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin-left: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(106, 90, 205, 0.3);
+        }
+        .search-bar button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(106, 90, 205, 0.4);
+        }
+        .interests {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 10px 0;
+        }
+        .interest-tag {
+            background: #e0e0ff;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            color: var(--color-primary);
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--color-primary), #8a2be2);
+            color: white;
+            margin-top: 40px;
+            font-size: 1.1em;
+        }
+        .heart {
+            color: #ff6b6b;
+        }
+        @media (max-width: 768px) {
+            .profile {
+                flex-direction: column;
+            }
+            .profile-photo {
+                width: 100%;
+                height: auto;
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MascFem</h1>
+        <p class="tagline">Найди своего фембоя, мужчину или квадробера!</p>
+    </header>
+
+    <div class="container">
+        <div class="search-bar">
+            <input type="text" placeholder="Поиск по анкетам...">
+            <button>Найти</button>
+        </div>
+
+        <!-- Анкета Вани -->
+        <div class="profile">
+            <img src="vanek.jpg" alt="Ваня" class="profile-photo">
+            <div class="profile-info">
+                <h2>Ваня, 18 лет</h2>
+                <p><span class="gender-tag femboy">Фембой</span></p>
+                <p><strong>О себе:</strong> Немного пошлый, ищу своего фембоя (или квадробера). Люблю аниме, видеоигры и милые свидания.</p>
+                <div class="interests">
+                    <span class="interest-tag">Косплей</span>
+                    <span class="interest-tag">Аниме</span>
+                    <span class="interest-tag">Видеоигры</span>
+                    <span class="interest-tag">Автомеханик</span>
+                </div>
+                <p><strong>Контакты:</strong> @liseumHF (Telegram)</p>
+                <p><strong>Контакты:</strong> +7 977 936 7055 (Звоните в любое время мальчики)</p>
+            </div>
+        </div>
+
+        <!-- Анкета Даниила -->
+        <div class="profile">
+            <img src="danek.jpg" alt="Даниил" class="profile-photo">
+            <div class="profile-info">
+                <h2>Даниил, 23 года</h2>
+                <p><span class="gender-tag nyashka">Няшка ♡</span> <span class="gender-tag femboy">Фембой</span></p>
+                <p><strong>О себе:</strong> Милый, нежный, люблю обнимашки и романтические вечера. Ищу заботливого парня.</p>
+                <div class="interests">
+                    <span class="interest-tag">Просмотр красивых фембоев</span>
+                    <span class="interest-tag">Косплей</span>
+                    <span class="interest-tag">Безработный</span>
+                    <span class="interest-tag">Кино</span>
+                </div>
+                <p><strong>Контакты:</strong> @skelet69 (Telegram)</p>
+                <p><strong>Контакты:</strong> +7 926 095 0608 (Жду твоего звоночка)</p>
+            </div>
+        </div>
+
+        <!-- Другие анкеты -->
+        <div class="profile">
+            <img src="koly.jpg" alt="Максим" class="profile-photo">
+            <div class="profile-info">
+                <h2>Николай, 18 лет</h2>
+                <p><span class="gender-tag man">Мужчина</span></p>
+                <p><strong>О себе:</strong> Спортивный, серьезный, но с чувством юмора. Ищу фембоя для отношений.</p>
+                <div class="interests">
+                    <span class="interest-tag">Сигареты</span>
+                    <span class="interest-tag">Одноразочки</span>
+                    <span class="interest-tag">Хойка</span>
+                </div>
+                <p><strong>Контакты:</strong> @satarusta (Telegram)</p>
+                <p><strong>Контакты:</strong> +7 903 668 7101 (Целую)</p>
+            </div>
+        </div>
+    <footer>
+        Сделано с <span class="heart">♥</span> для фембоев и мужчин | &copy; 2025 MascFem
+    </footer>
+</body>
+</html>
